@@ -1,0 +1,36 @@
+﻿@inherits VibrateBrowserBase
+
+<MudCard Outlined="true">
+    <MudCardHeader>
+        <CardHeaderContent>
+            <MudText Typo="Typo.h6">Vibrate Browser</MudText>
+        </CardHeaderContent>
+        <CardHeaderActions>
+            <MudTooltip Text="Work on cell phones only">
+                <MudIconButton Icon="@Icons.Material.Rounded.PhoneAndroid" Color="Color.Default" />
+            </MudTooltip>
+        </CardHeaderActions>
+    </MudCardHeader>
+    <MudCardContent Class="pt-0">
+        <MudText Class="mb-4">To perform the action, inform how many seconds the browser will be vibrating.</MudText>
+
+        <MudNumericField @bind-Value="Time"
+                         Label="Time in seconds"
+                         Placeholder="Sets the vibration time in seconds."
+                         Min="1"
+                         Max="600"
+                         Variant="Variant.Text"
+                         Adornment="Adornment.Start"
+                         AdornmentIcon="@Icons.Material.Rounded.AccessTime"
+                         HideSpinButtons="true" />
+
+    </MudCardContent>
+    <MudCardActions Class="d-flex justify-space-between">
+        <MudText Typo="Typo.body2" Class="px-3">
+            v 1.0.0
+        </MudText>
+
+        <MudButton Variant="Variant.Filled" DisableElevation="true" Color="Color.Tertiary" OnClick="ToExecuteVibrate">To Execute</MudButton>
+    </MudCardActions>
+</MudCard>
+

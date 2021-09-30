@@ -1,6 +1,33 @@
 ﻿@page "/"
+@inherits IndexBase
 
-<h1>Hello, world!</h1>
+<TitleBreadcrumbs TitlePage="Componentes"
+                  ListBreadcrumbs="ListBreadcrumbs" />
 
-Welcome to your new app.
+<MudGrid>
+    <MudItem xs="12" sm="12" md="12" lg="3" xl="3">
+        <VibrateBrowser />
+    </MudItem>
+</MudGrid>
 
+
+@*@if (!Equals(Lista, null) && Lista.Count() > 0)
+{
+    <MudExpansionPanels Class="my-3">
+        <Virtualize Items="Lista" OverscanCount="3">
+            <MudExpansionPanel HideIcon="true" @bind-IsExpanded="@context.isOpen">
+                <TitleContent>
+                    <MudText>Item @context.Valor</MudText>
+                </TitleContent>
+                <ChildContent>
+                    @if (context.isOpen)
+                    {
+                        <MudText>
+                            ...
+                        </MudText>
+                    }
+                </ChildContent>
+            </MudExpansionPanel>
+        </Virtualize>
+    </MudExpansionPanels>
+}*@
