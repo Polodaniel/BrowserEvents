@@ -1,0 +1,41 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider Theme="currentTheme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="1">
+        <MudText Typo="Typo.h5" Class="ml-3">BrowserEvents</MudText>
+        <MudSpacer />
+        <MudButton Link="https://github.com/Polodaniel/DragDropBlazorServer"
+                   Target="_blank"
+                   Variant="Variant.Filled"
+                   EndIcon="@Icons.Custom.Brands.GitHub"
+                   Color="Color.Tertiary">
+            GitHub
+        </MudButton>
+    </MudAppBar>
+    <MudMainContent>
+        <MudContainer Class="mt-5" MaxWidth="MaxWidth.False">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    MudTheme currentTheme = new MudTheme();
+
+    protected override void OnInitialized() =>
+        currentTheme = PaleteColors;
+
+    MudTheme PaleteColors = new MudTheme()
+    {
+        Palette = new Palette()
+        {
+            AppbarBackground = "#263238",
+            AppbarText="#FFFFFF",
+            Tertiary = "#377D7D"
+        }
+    };
+}
